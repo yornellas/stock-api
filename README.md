@@ -2,8 +2,6 @@
 
 Projeto API Rest de cotação de ações, desenvolvido na Santander Dev Week - Digital Innovation One.
 
-
-
 ## Backend
 
 * Spring Boot
