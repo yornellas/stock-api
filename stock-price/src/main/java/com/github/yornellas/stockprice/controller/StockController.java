@@ -1,6 +1,8 @@
 package com.github.yornellas.stockprice.controller;
 
 import com.github.yornellas.stockprice.model.dto.StockDTO;
+import com.github.yornellas.stockprice.service.StockService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +16,12 @@ import java.util.List;
 @RequestMapping(value = "/stock")
 public class StockController {
 
+    @Autowired
+    private StockService service; //para conectar o Controller com o Service
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) //salvar a ação na base de dados
     public ResponseEntity<StockDTO> save(@Valid @RequestBody StockDTO dto) {
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(service.save(dto));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) //update na base de dados
