@@ -9,8 +9,5 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
   imports: [
     CommonModule
   ],
-  exports: [
-    DashboardPageComponent,
-  ],
 })
 export class DashboardModule { }
